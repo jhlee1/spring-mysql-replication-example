@@ -1,0 +1,29 @@
+spring:
+  jpa:
+    hibernate.ddl-auto: create
+    generate-ddl: true
+    database: mysql
+
+app:
+  datasource:
+    master:
+      jdbcUrl: jdbc:mysql://localhost:3301/sample
+      username: root
+      password: master
+      driverClassName: com.mysql.cj.jdbc.Driver
+    replica:
+      jdbcUrl: jdbc:mysql://localhost:3302/sample
+      username: root
+      password: slave
+      driverClassName: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    ROOT: INFO
+    org:
+      springframework:
+        web:
+          filter:
+            CommonsRequestLoggingFilter: DEBUG
+      hibernate:
+        SQL: debug
